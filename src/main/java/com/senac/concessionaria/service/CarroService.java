@@ -21,8 +21,8 @@ public class CarroService {
 		return carroRepo.findAll();
 	}
 
-	public void salvar(Carro carro) {
-		carroRepo.save(carro);		
+	public Carro salvar(Carro carro) {
+		return carroRepo.save(carro);		
 	}
 
 	public void excluir(Long id) {
@@ -32,6 +32,14 @@ public class CarroService {
 	public Carro buscaPorID(Long id) throws ObjectNotFoundException {
 		Optional<Carro> carro = carroRepo.findById(id);
 		return carro.orElseThrow(() -> new ObjectNotFoundException("Carro não encontrado. id:" + id));
+	}
+
+	public Carro alterar(Carro carroAlterado) throws ObjectNotFoundException {
+		Carro carro = buscaPorID(carroAlterado.getId());
+		carro.setModelo(carroAlterado.getModelo());
+		carro.setDescricao(carroAlterado.getDescricao());
+		carro.setId(carroAlterado.getId());
+		return salvar(carro);
 	}
 	
 }

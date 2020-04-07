@@ -8,17 +8,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Alterar Carro</title>
+    <title>Alterar Documento</title>
   </head>
   <body>
 
 	<div class="container">
 		<div class="panel-heading my-3" align="center">
-			<strong>ALTERAÇÃO DE CARRO</strong>
+			<strong>ALTERAÇÃO DE DOCUMENTO</strong>
 		</div>
 		
 		<div class="panel-body">
-			<form class="form-horizontal p-3" th:object="${carro}" th:action="@{/carro/alterar}"
+			<form class="form-horizontal p-3" th:object="${documento}" th:action="@{/documento/alterar}"
 			method="POST">
 				<div class="form-group">
 					<fieldset>
@@ -26,11 +26,6 @@
 							<label>ID</label>
 							<input type="text" class="form-control input-sm" th:field="*{id}"
 							readOnly="readOnly" maxlength="50"/>
-						</div>
-						<div class="form-group row">
-							<label>MODELO</label>
-							<input type="text" class="form-control input-sm" th:field="*{modelo}"
-							autofocus="autofocus" placeholder="Informe o modelo" maxlength="255"/>
 						</div>
 						<div class="form-group row">
 							<label>DESCRIÇÃO</label>
@@ -41,7 +36,7 @@
 				</div>
 				<div align="center">
 					<button type="submit" class="btn btn-sm btn-success">SALVAR</button>
-					<a th:href="@{/carro}" class="btn btn-sm btn-danger">CANCELAR</a>
+					<a th:href="@{/documento}" class="btn btn-sm btn-danger">CANCELAR</a>
 				</div>
 			</form>
 		</div>

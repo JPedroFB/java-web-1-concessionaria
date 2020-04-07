@@ -8,43 +8,43 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Alterar Carro</title>
+    <title>Documentos</title>
   </head>
   <body>
 
 	<div class="container">
-		<div class="panel-heading my-3" align="center">
-			<strong>ALTERAÇÃO DE CARRO</strong>
-		</div>
-		
-		<div class="panel-body">
-			<form class="form-horizontal p-3" th:object="${carro}" th:action="@{/carro/alterar}"
-			method="POST">
-				<div class="form-group">
-					<fieldset>
-						<div class="form-group row">
-							<label>ID</label>
-							<input type="text" class="form-control input-sm" th:field="*{id}"
-							readOnly="readOnly" maxlength="50"/>
-						</div>
-						<div class="form-group row">
-							<label>MODELO</label>
-							<input type="text" class="form-control input-sm" th:field="*{modelo}"
-							autofocus="autofocus" placeholder="Informe o modelo" maxlength="255"/>
-						</div>
-						<div class="form-group row">
-							<label>DESCRIÇÃO</label>
-							<input type="text" class="form-control input-sm" th:field="*{descricao}"
-							autofocus="autofocus" placeholder="Informe a descrição" maxlength="255"/>
-						</div>
-					</fieldset>
+		<div class="panel-default">
+			<div class="text-center">
+				<h1 class="h4 text-gray-900 mb-4 my-2">Listagem de Documentos</h1>
+			</div>
+			
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>DESCRIÇÃO</th>
+								<th>AÇÕES</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="documento : ${documentos}">
+								<td th:text="${documento.id}"></td>
+								<td th:text="${documento.descricao}"></td>
+								<td>
+									<div class="btn-group float-right">
+										<a th:href="@{/documento/alterar/{idDocumento}(idDocumento=${documento.id})}" class="btn btn-sm btn-primary text-light mx-1" >ALTERAR</a>
+										<a th:href="@{/documento/excluir/{idDocumento}(idDocumento=${documento.id})}" class="delete btn btn-sm btn-danger text-light mx-1">EXCLUIR</a>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
-				<div align="center">
-					<button type="submit" class="btn btn-sm btn-success">SALVAR</button>
-					<a th:href="@{/carro}" class="btn btn-sm btn-danger">CANCELAR</a>
-				</div>
-			</form>
+			</div>
 		</div>
+		<a class="btn btn-sm btn-success text-light" th:href="@{/documento/cadastrar}">CADASTRAR NOVO DOCUMENTO</a>
 	</div>
 
 
