@@ -1,9 +1,12 @@
 package com.senac.concessionaria.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
@@ -21,6 +24,10 @@ public class Carro {
 	@NotEmpty
 	@NotBlank
 	private String descricao;
+	
+	@OneToOne
+	@JoinColumn(name = "id_chave")
+	private Documento documento;
 	
 	public Carro() {
 	}
@@ -42,6 +49,14 @@ public class Carro {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public Documento getDocumento() {
+		return documento;
+	}
+
+	public void setDocumento(Documento documento) {
+		this.documento = documento;
 	}
 	
 	

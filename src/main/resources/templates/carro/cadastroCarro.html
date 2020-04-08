@@ -27,12 +27,16 @@
 							<input type="text" class="form-control input-sm" th:field="*{modelo}"
 							autofocus="autofocus" placeholder="Informe o modelo" maxlength="50"/>
 						</div>
-					</fieldset>
-					<fieldset>
 						<div class="form-group row">
 							<label>DESCRIÇÃO</label>
 							<input type="text" class="form-control input-sm" th:field="*{descricao}"
 							autofocus="autofocus" placeholder="Informe o modelo" maxlength="255"/>
+						</div>
+						<div class="form-group row">
+							<label>DOCUMENTO</label>
+							<select class="form-control" th:field="*{documento}">
+								<option th:each="documento : ${documentos}" th:value="${documento.id}" th:text="${documento.descricao}"></option>
+							</select>
 						</div>
 					</fieldset>
 				</div>
