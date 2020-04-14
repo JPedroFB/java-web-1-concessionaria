@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.senac.concessionaria.model.Carro;
 import com.senac.concessionaria.service.CarroService;
+import com.senac.concessionaria.service.ChaveService;
 import com.senac.concessionaria.service.DocumentoService;
 
 import javassist.tools.rmi.ObjectNotFoundException;
@@ -22,6 +23,9 @@ public class CarroController {
 
 	@Autowired
 	CarroService carroService;
+	
+	@Autowired
+	ChaveService chaveService;
 	
 	@Autowired
 	DocumentoService documentoService;
@@ -37,6 +41,7 @@ public class CarroController {
 	public ModelAndView cadastrar() {
 		ModelAndView mv = new ModelAndView("carro/cadastroCarro");
 		mv.addObject("documentos", documentoService.listar());
+		mv.addObject("chaves", chaveService.listar());
 		mv.addObject("carro", new Carro());
 		return mv;
 	}
@@ -51,6 +56,7 @@ public class CarroController {
 	public ModelAndView editar(@PathVariable("id") Long id) throws ObjectNotFoundException {
 		ModelAndView mv = new ModelAndView("carro/alterarCarro");
 		mv.addObject("documentos", documentoService.listar());
+		mv.addObject("chaves", chaveService.listar());
 		mv.addObject("carro", carroService.buscaPorID(id));	
 		return mv;
 	}

@@ -26,8 +26,12 @@ public class Carro {
 	private String descricao;
 	
 	@OneToOne
-	@JoinColumn(name = "id_chave")
+	@JoinColumn(name = "id_documento")
 	private Documento documento;
+	
+	@OneToOne
+	@JoinColumn(name = "id_chave")
+	private Chave chave;
 	
 	public Carro() {
 	}
@@ -57,6 +61,14 @@ public class Carro {
 
 	public void setDocumento(Documento documento) {
 		this.documento = documento;
+	}
+
+	public Chave getChave() {
+		return chave;
+	}
+
+	public void setChave(Chave chave) {
+		this.chave = chave;
 	}
 	
 	

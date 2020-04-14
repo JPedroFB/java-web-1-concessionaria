@@ -40,6 +40,7 @@ public class CarroService {
 		carro.setDescricao(carroAlterado.getDescricao());
 		carro.setId(carroAlterado.getId());
 		carro.setDocumento(carroAlterado.getDocumento());
+		carro.setChave(carroAlterado.getChave());
 		return salvar(carro);
 	}
 	

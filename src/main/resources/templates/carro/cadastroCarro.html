@@ -38,6 +38,12 @@
 								<option th:each="documento : ${documentos}" th:value="${documento.id}" th:text="${documento.descricao}"></option>
 							</select>
 						</div>
+						<div class="form-group row">
+							<label>CHAVE</label>
+							<select class="form-control" th:field="*{chave}">
+								<option th:each="chave : ${chaves}" th:value="${chave.id}" th:text="${chave.descricao}"></option>
+							</select>
+						</div>
 					</fieldset>
 				</div>
 				<div align="center">
