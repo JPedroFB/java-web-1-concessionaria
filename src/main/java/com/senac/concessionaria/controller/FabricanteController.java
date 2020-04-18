@@ -1,6 +1,5 @@
 package com.senac.concessionaria.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,65 +9,49 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.senac.concessionaria.model.Carro;
+import com.senac.concessionaria.model.Fabricante;
 import com.senac.concessionaria.service.CarroService;
-import com.senac.concessionaria.service.ChaveService;
-import com.senac.concessionaria.service.DocumentoService;
 import com.senac.concessionaria.service.FabricanteService;
 
 import javassist.tools.rmi.ObjectNotFoundException;
 
 @Controller
-@RequestMapping("carro")
-public class CarroController {
+@RequestMapping("fabricante")
+public class FabricanteController {
 
-	@Autowired
-	CarroService carroService;
-	
-	@Autowired
-	ChaveService chaveService;
-	
-	@Autowired
-	DocumentoService documentoService;
-	
 	@Autowired
 	FabricanteService fabricanteService;
 	
 	@GetMapping("")
 	public ModelAndView listar() {
-		ModelAndView mv = new ModelAndView("carro/listaCarros");
-		mv.addObject("carros", carroService.listar());
+		ModelAndView mv = new ModelAndView("fabricante/listaFabricantes");
+		mv.addObject("fabricantes", fabricanteService.listar());
 		return mv;
 	}
 	
 	@GetMapping("/cadastrar")
 	public ModelAndView cadastrar() {
-		ModelAndView mv = new ModelAndView("carro/cadastroCarro");
-		mv.addObject("documentos", documentoService.listar());
-		mv.addObject("chaves", chaveService.listar());
-		mv.addObject("fabricantes", fabricanteService.listar());
-		mv.addObject("carro", new Carro());
+		ModelAndView mv = new ModelAndView("fabricante/cadastroFabricante");
+		mv.addObject("fabricante", new Fabricante());
 		return mv;
 	}
 	
 	@PostMapping("/salvar")
-	public ModelAndView salvar(Carro carro) {
-		carroService.salvar(carro);
+	public ModelAndView salvar(Fabricante fabricante) {
+		fabricanteService.salvar(fabricante);
 		return listar();
 	}
 	
 	@GetMapping("/alterar/{id}")
 	public ModelAndView editar(@PathVariable("id") Long id) throws ObjectNotFoundException {
-		ModelAndView mv = new ModelAndView("carro/alterarCarro");
-		mv.addObject("documentos", documentoService.listar());
-		mv.addObject("chaves", chaveService.listar());
-		mv.addObject("fabricantes", fabricanteService.listar());
-		mv.addObject("carro", carroService.buscaPorID(id));	
+		ModelAndView mv = new ModelAndView("fabricante/alterarFabricante");
+		mv.addObject("fabricante", fabricanteService.buscaPorID(id));	
 		return mv;
 	}
 	
 	@PostMapping("/alterar")
-	public ModelAndView alterar(Carro carro) throws ObjectNotFoundException {
-		carroService.alterar(carro);
+	public ModelAndView alterar(Fabricante fabricante) throws ObjectNotFoundException {
+		fabricanteService.alterar(fabricante);
 		return listar();
 	}
 	
@@ -76,9 +59,9 @@ public class CarroController {
 	@GetMapping("/excluir/{id}")
 	public ModelAndView excluir(@PathVariable("id") Long id) {
 		try{
-			carroService.excluir(id);
+			fabricanteService.excluir(id);
 		}finally {
-			return listar();
+			return listar();			
 		}
 	}
 	

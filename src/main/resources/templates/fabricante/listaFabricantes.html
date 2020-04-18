@@ -8,14 +8,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Carros</title>
+    <title>Fabricantes</title>
   </head>
   <body>
 
 	<div class="container">
 		<div class="panel-default">
 			<div class="text-center">
-				<h1 class="h4 text-gray-900 mb-4 my-2">Listagem de Carros</h1>
+				<h1 class="h4 text-gray-900 mb-4 my-2">Listagem de Fabricantes</h1>
 			</div>
 			
 			<div class="panel-body">
@@ -24,26 +24,18 @@
 						<thead>
 							<tr>
 								<th>ID</th>
-								<th>MODELO</th>
-								<th>DESCRIÇÃO</th>
-								<th>DOCUMENTO</th>
-								<th>CHAVE</th>
-								<th>FABRICANTE</th>
+								<th>NOME</th>
 								<th>AÇÕES</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="carro : ${carros}">
-								<td th:text="${carro.id}"></td>
-								<td th:text="${carro.modelo}"></td>
-								<td th:text="${carro.descricao}"></td>
-								<td th:text="${carro.documento.descricao}"></td>
-								<td th:text="${carro.chave.descricao}"></td>
-								<td th:text="${carro.fabricante.nome}"></td>
+							<tr th:each="fabricante : ${fabricantes}">
+								<td th:text="${fabricante.id}"></td>
+								<td th:text="${fabricante.nome}"></td>
 								<td>
 									<div class="btn-group float-right">
-										<a th:href="@{/carro/alterar/{idCarro}(idCarro=${carro.id})}" class="btn btn-sm btn-primary text-light mx-1" >ALTERAR</a>
-										<a th:href="@{/carro/excluir/{idCarro}(idCarro=${carro.id})}" class="delete btn btn-sm btn-danger text-light mx-1">EXCLUIR</a>
+										<a th:href="@{/fabricante/alterar/{idFabricante}(idFabricante=${fabricante.id})}" class="btn btn-sm btn-primary text-light mx-1" >ALTERAR</a>
+										<a th:href="@{/fabricante/excluir/{idFabricante}(idFabricante=${fabricante.id})}" class="delete btn btn-sm btn-danger text-light mx-1">EXCLUIR</a>
 									</div>
 								</td>
 							</tr>
@@ -52,7 +44,7 @@
 				</div>
 			</div>
 		</div>
-		<a class="btn btn-sm btn-success text-light" th:href="@{/carro/cadastrar}">CADASTRAR NOVO CARRO</a>
+		<a class="btn btn-sm btn-success text-light" th:href="@{/fabricante/cadastrar}">CADASTRAR NOVO DOCUMENTO</a>
 	</div>
 
 

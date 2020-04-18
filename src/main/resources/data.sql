@@ -1,0 +1,30 @@
+INSERT INTO DOCUMENTO(descricao) 
+VALUES('DOC 2020');
+
+INSERT INTO DOCUMENTO(descricao) 
+VALUES('DOC 2021');
+
+INSERT INTO DOCUMENTO(descricao) 
+VALUES('DOC 2022');
+
+INSERT INTO CHAVE(descricao) 
+VALUES('Honda');
+
+INSERT INTO CHAVE(descricao) 
+VALUES('Ford');
+
+INSERT INTO CHAVE(descricao) 
+VALUES('Ferrari');
+
+INSERT INTO FABRICANTE(nome) 
+VALUES('Ferrari');
+
+INSERT INTO FABRICANTE(nome) 
+VALUES('Ford');
+
+INSERT INTO FABRICANTE(nome) 
+VALUES('Lamborguini');
+
+INSERT INTO FABRICANTE(nome) 
+VALUES('Wolksvagem');
+
