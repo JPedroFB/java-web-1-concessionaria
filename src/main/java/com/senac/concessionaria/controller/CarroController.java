@@ -73,6 +73,7 @@ public class CarroController {
 	}
 	
 	
+	@SuppressWarnings("finally")
 	@GetMapping("/excluir/{id}")
 	public ModelAndView excluir(@PathVariable("id") Long id) {
 		try{

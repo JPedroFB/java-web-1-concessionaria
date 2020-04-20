@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.senac.concessionaria.model.Carro;
 import com.senac.concessionaria.model.Documento;
-import com.senac.concessionaria.service.CarroService;
 import com.senac.concessionaria.service.DocumentoService;
 
 import javassist.tools.rmi.ObjectNotFoundException;
@@ -56,6 +54,7 @@ public class DocumentoController {
 	}
 	
 	
+	@SuppressWarnings("finally")
 	@GetMapping("/excluir/{id}")
 	public ModelAndView excluir(@PathVariable("id") Long id) {
 		try{

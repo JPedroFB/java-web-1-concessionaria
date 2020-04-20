@@ -6,9 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.senac.concessionaria.model.Carro;
 import com.senac.concessionaria.model.Documento;
-import com.senac.concessionaria.repository.CarroRepository;
 import com.senac.concessionaria.repository.DocumentoRepository;
 
 import javassist.tools.rmi.ObjectNotFoundException;
