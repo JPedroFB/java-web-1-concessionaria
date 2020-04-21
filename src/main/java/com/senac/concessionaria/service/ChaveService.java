@@ -21,13 +21,14 @@ public class ChaveService {
 		return chaveRepo.findAll();
 	}
 
-	public void salvar(Chave chave) {
-		chaveRepo.save(chave);
+	public Chave salvar(Chave chave) {
+		return chaveRepo.save(chave);
 	}
 
-	public void alterar(Chave chave) {
-		// TODO Auto-generated method stub
-		
+	public Chave alterar(Chave chaveAlterado) throws ObjectNotFoundException {
+		Chave chave = buscaPorID(chaveAlterado.getId());
+		chave.setDescricao(chaveAlterado.getDescricao());
+		return salvar(chave);
 	}
 
 	public void excluir(Long id) {
